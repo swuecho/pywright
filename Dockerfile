@@ -1,3 +1,4 @@
+## from https://github.com/microsoft/playwright-python
 FROM ubuntu:focal
 
 COPY ./sources.list /etc/apt/
@@ -75,6 +76,7 @@ RUN su pwuser -c "mkdir /tmp/pw && cd /tmp/pw && \
 # 3. Symlink downloaded browsers for root user
 RUN mkdir /root/.cache/ && \
     ln -s /home/pwuser/.cache/ms-playwright/ /root/.cache/ms-playwright
+
 
 # install virtualenv
 # install playwright and pytest in virtualenv
