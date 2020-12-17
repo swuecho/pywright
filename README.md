@@ -1,3 +1,8 @@
+## pull docker image
+
+```sh
+docker pull echowuhao/pywright
+```
 ## config in docker-compose.yml
 
 ```yaml
@@ -13,5 +18,7 @@
 ```
 
 ## run test
-docker-compose run playwright bash run_browser_test.sh
 
+```sh
+docker-compose run playwright bash run_browser_test.sh
+```
