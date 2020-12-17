@@ -9,7 +9,7 @@ docker pull echowuhao/pywright
   playwright:
     # the test is actually run in container
     container_name: "playwright"
-    image: ${docker_registry}/pywright:3.8.6
+    image: echowuhao/pywright
     environment:
       - LAUNCH_URL=http://envoy_proxy:80
     volumes:
