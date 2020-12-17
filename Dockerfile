@@ -1,5 +1,6 @@
 FROM ubuntu:focal
 
+COPY ./sources.list /etc/apt/
 # 1. Install latest Python
 RUN apt-get update && apt-get install -y python3 python3-pip && \
     update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1 && \
@@ -78,7 +79,9 @@ RUN pip install --upgrade pip && \
     pip install virtualenv && \
     virtualenv --python=/usr/bin/python3 /opt/venv && \
     . /opt/venv/bin/activate && \
-    python install playwright
+    pip install --upgrade pip && \
+    pip install playwright pytest
+
 
 
 WORKDIR /app
