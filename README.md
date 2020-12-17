@@ -1,0 +1,15 @@
+## config in docker-compose.yml
+
+  playwright:
+    # the test is actually run in container
+    container_name: "playwright"
+    image: ${docker_registry}/pywright:3.8.6
+    environment:
+      - LAUNCH_URL=http://envoy_proxy:80
+    volumes:
+     - ./run_browser_test.sh:/app/run_browser_test.sh
+     - ./broswer_tests:/app/broswer_tests
+
+## run test
+docker-compose run playwright bash run_browser_test.sh
+
