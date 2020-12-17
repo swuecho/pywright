@@ -13,7 +13,7 @@ docker pull echowuhao/pywright
     environment:
       - LAUNCH_URL=http://envoy_proxy:80
     volumes:
-     - ./run_browser_test.sh:/app/run_browser_test.sh
+     - ./run_browser_test.sh:/app/run_browser_test.sh # /app is the workdir in image
      - ./broswer_tests:/app/broswer_tests
 ```
 
