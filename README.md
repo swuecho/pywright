@@ -1,5 +1,6 @@
 ## config in docker-compose.yml
 
+```yaml
   playwright:
     # the test is actually run in container
     container_name: "playwright"
@@ -9,6 +10,7 @@
     volumes:
      - ./run_browser_test.sh:/app/run_browser_test.sh
      - ./broswer_tests:/app/broswer_tests
+```
 
 ## run test
 docker-compose run playwright bash run_browser_test.sh
