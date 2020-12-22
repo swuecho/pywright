@@ -1,4 +1,7 @@
+## from https://github.com/microsoft/playwright-python
 FROM ubuntu:focal
+
+COPY ./sources.list /etc/apt/
 
 # 1. Install latest Python
 RUN apt-get update && apt-get install -y python3 python3-pip && \
@@ -74,11 +77,16 @@ RUN su pwuser -c "mkdir /tmp/pw && cd /tmp/pw && \
 RUN mkdir /root/.cache/ && \
     ln -s /home/pwuser/.cache/ms-playwright/ /root/.cache/ms-playwright
 
+
+# install virtualenv
+# install playwright and pytest in virtualenv
+
 RUN pip install --upgrade pip && \
     pip install virtualenv && \
     virtualenv --python=/usr/bin/python3 /opt/venv && \
     . /opt/venv/bin/activate && \
-    pip install playwright
+    pip install --upgrade pip && \
+    pip install playwright pytest pytest-playwright
 
 ENV PYTHONPATH /app
 
