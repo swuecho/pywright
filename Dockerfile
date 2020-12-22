@@ -53,7 +53,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # 6. Install ffmpeg to bring in audio and video codecs necessary for playing videos in Firefox.
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    ffmpeg
+    ffmpeg libffi-dev
 
 # 7. (Optional) Install XVFB if there's a need to run browsers in headful mode
 RUN apt-get update && apt-get install -y --no-install-recommends \

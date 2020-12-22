@@ -5,7 +5,7 @@ github_pkg_registry_surveyresearch=docker.pkg.github.com/swuecho/surveyresearch
 
 build:
 	docker build -t echowuhao/pywright -f Dockerfile .
-	docker push echowuhao/pywright
+	# docker push echowuhao/pywright
 	docker tag  echowuhao/pywright $(local_registry)/pywright:$(version)
 	docker push  $(local_registry)/pywright:$(version)
 
