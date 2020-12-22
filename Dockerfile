@@ -78,7 +78,8 @@ RUN pip install --upgrade pip && \
     pip install virtualenv && \
     virtualenv --python=/usr/bin/python3 /opt/venv && \
     . /opt/venv/bin/activate && \
-    python install playwright
+    pip install playwright
 
+ENV PYTHONPATH /app
 
 WORKDIR /app
