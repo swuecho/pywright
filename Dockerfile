@@ -76,21 +76,3 @@ RUN su pwuser -c "mkdir /tmp/pw && cd /tmp/pw && \
 # 3. Symlink downloaded browsers for root user
 RUN mkdir /root/.cache/ && \
     ln -s /home/pwuser/.cache/ms-playwright/ /root/.cache/ms-playwright
-
-
-# install virtualenv
-# install playwright and pytest in virtualenv
-
-RUN pip install --upgrade pip && \
-    pip install virtualenv && \
-    virtualenv --python=/usr/bin/python3 /opt/venv && \
-    . /opt/venv/bin/activate && \
-    pip install --upgrade pip && \
-    pip install playwright pytest pytest-playwright
-
-ENV PIP_DISABLE_PIP_VERSION_CHECK=1
-ENV PIP_NO_CACHE_DIR=1
-
-ENV PYTHONPATH /app
-
-WORKDIR /app

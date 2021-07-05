@@ -4,7 +4,7 @@ aliyun_registry_bestqa=registry.cn-shanghai.aliyuncs.com/bestqa
 github_pkg_registry_surveyresearch=docker.pkg.github.com/swuecho/surveyresearch
 
 build:
-	docker build -t echowuhao/pywright -f Dockerfile .
-	# docker push echowuhao/pywright
-	docker tag  echowuhao/pywright $(local_registry)/pywright:$(version)
-	docker push  $(local_registry)/pywright:$(version)
+	docker build -t echowuhao/playwright_base -f Dockerfile .
+	# docker push echowuhao/playwright_base
+	docker tag  echowuhao/playwright_base $(local_registry)/playwright_base:$(version)
+	docker push  $(local_registry)/playwright_base:$(version)
