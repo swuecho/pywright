@@ -62,17 +62,3 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # 8. Feature-parity with node.js base images.
 RUN apt-get update && apt-get install -y --no-install-recommends git ssh
 
-# 9. Create the pwuser (we internally create a symlink for the pwuser and the root user)
-RUN adduser pwuser
-
-# === BAKE BROWSERS INTO IMAGE ===
-
-# 2. Install playwright and then delete the installation.
-#    Browsers will remain downloaded in `/home/pwuser/.cache/ms-playwright`.
-RUN su pwuser -c "mkdir /tmp/pw && cd /tmp/pw && \
-    pip install playwright && \
-    python -m playwright install"
-
-# 3. Symlink downloaded browsers for root user
-RUN mkdir /root/.cache/ && \
-    ln -s /home/pwuser/.cache/ms-playwright/ /root/.cache/ms-playwright
